@@ -55,8 +55,6 @@ def visualizar():
 
                 edadrostro="Edad: "+str(edad)
 
-
-
                 face_frame_encodings = face_recognition.face_encodings(frame, known_face_locations=[face_location])[0]
                 result = face_recognition.compare_faces([face_frame_encodings], face_frame_encodings)
                 new_image = frame[face_location[0]: face_location[2], face_location[3]: face_location[1]]
@@ -67,7 +65,7 @@ def visualizar():
                 print(predict)
 
                 if predict[0] == 0:
-                    if predict[1] <= 4000:
+                    if predict[1] <= 4500:
                         text = "Ocampo"
                         color = (125,220,0)
                     else:
@@ -75,7 +73,7 @@ def visualizar():
                         color = (50, 50, 255)
 
                 elif predict[0] == 1:
-                    if predict[1] <= 4000:
+                    if predict[1] <= 4500:
                         text = "Castro"
                         color = (125, 220, 0)
                     else:
@@ -83,7 +81,7 @@ def visualizar():
                         color = (50, 50, 255)
 
                 elif predict[0] == 2:
-                    if predict[1] <= 4000:
+                    if predict[1] <= 4500:
                         text = "Gomez"
                         color = (125, 220, 0)
                     else:
