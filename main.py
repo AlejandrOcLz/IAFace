@@ -90,6 +90,10 @@ def visualizar():
                         text = "NaN"
                         color = (50, 50, 255)
 
+                else:
+                    text = "NaN"
+                    color = (50, 50, 255)
+
                 cv2.rectangle(frame, (face_location[3], face_location[2]), (face_location[1], face_location[2] + 60), color, -1)
                 cv2.rectangle(frame,(face_location[3], face_location[0]), (face_location[1], face_location[2]),color,2)
                 #cv2.rectangle(frame, (x, y), (x + ancho, y + alto), color, 3)
