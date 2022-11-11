@@ -33,8 +33,27 @@ def visualizar():
 
         faces = face_cascade.detectMultiScale(frame, scaleFactor=1.3, minNeighbors=5, minSize=(30, 30), maxSize=(600,600))
 
-        for(x,y,ancho,alto) in faces:
-            cv2.rectangle(frame,(x,y),(x+ancho,y+alto),(255,0,0),3)
+        face_loc = face_recognition.face_locations(frame)
+
+        #face_image_encodings = face_recognition.face_encodings()
+
+        if face_loc != []:
+            for face_location in face_loc:
+                face_frame_encodings = face_recognition.face_encodings(frame, known_face_locations=[face_location])[0]
+                result = face_recognition.compare_faces([face_frame_encodings], face_frame_encodings)
+
+                if result[0] == True:
+                    text = "Ocampo"
+                    color = (125,220,0)
+
+                else:
+                    text = "NaN"
+                    color = (50, 50, 255)
+
+                cv2.rectangle(frame, (face_location[3], face_location[2]), (face_location[1], face_location[2] + 30), color, -1)
+                cv2.rectangle(frame,(face_location[3], face_location[0]), (face_location[1], face_location[2]),color,2)
+                #cv2.rectangle(frame, (x, y), (x + ancho, y + alto), color, 3)
+                cv2.putText(frame, text, (face_location[3], face_location[2] +20), 2, 0.7, (255,255,255),1)
 
 
         #---End code face
