@@ -3,7 +3,7 @@ import cv2
 cap = cv2.VideoCapture(0)
 face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_frontalface_default.xml")
 
-i = 42
+i = 69
 while cap.isOpened():
     ret, frame = cap.read()
     faces = face_cascade.detectMultiScale(frame, scaleFactor=1.3, minNeighbors=5, minSize=(30, 30),maxSize=(600, 600))

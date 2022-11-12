@@ -25,9 +25,9 @@ face_eigen.train(faces,np.array(labels))
 face_eigen.write("training-eigen.xml")
 
 
-#face_fisher = cv2.face.FisherFaceRecognizer_create()
-#face_fisher.train(faces,np.array(labels))
-#face_fisher.write("training-fisher.xml")
+face_fisher = cv2.face.FisherFaceRecognizer_create()
+face_fisher.train(faces,np.array(labels))
+face_fisher.write("training-fisher.xml")
 
 face_lbph = cv2.face.LBPHFaceRecognizer_create()
 face_lbph.train(faces,np.array(labels))
